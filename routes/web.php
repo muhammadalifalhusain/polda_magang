@@ -6,6 +6,9 @@ use App\Http\Controllers\PengajuanMagangController;
 Route::get('/', function () {
     return view('home');
 });
+Route::get('/login', function () {
+    return view('auth.login');
+});
 
 
 Route::prefix('pengajuan')->group(function () {

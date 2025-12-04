@@ -27,6 +27,15 @@
                         <a class="nav-link scrollto" href="{{ url('saran') }}">Saran dan Masukkan</a>
                     </div>
                 </div>
+                <li style="margin-left: 20px;">
+                    <a href="{{ url('login') }}" 
+                    class="nav-link scrollto d-flex align-items-center gap-2 px-3 py-1"
+                    style="background:#39312f; color:#ff5821; border-radius:6px; font-weight:600;">
+                        <i class="bi bi-box-arrow-in-right" style="font-size:1rem;"></i>
+                        LOG IN
+                    </a>
+                </li>
+
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
