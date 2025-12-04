@@ -56,9 +56,11 @@
             <input type="file" name="surat_pdf" accept="application/pdf" class="form-control" required>
         </div>
 
-        <button class="btn btn-primary w-100" type="submit">
+        <button class="btn w-100" type="submit"
+                style="background:#39312f; color:#ff5821; font-weight:600; border-radius:10px;">
             <i class="bx bx-send"></i> Kirim Pendaftaran
         </button>
+
     </form>
 </div>
 
