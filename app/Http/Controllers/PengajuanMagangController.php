@@ -9,9 +9,8 @@ use Illuminate\Support\Str;
 
 class PengajuanMagangController extends Controller
 {
-    /**
-     * Simpan pengajuan magang
-     */
+
+    // Method Store DB
     public function store(Request $request)
     {
         $request->validate([
@@ -23,15 +22,10 @@ class PengajuanMagangController extends Controller
             'tanggal_selesai' => 'required|date',
             'surat_pdf' => 'required|mimes:pdf|max:2048',
         ]);
-
-        // Generate tracking code unik
         $tracking = strtoupper(Str::random(10));
-
-        // Upload file PDF ke public/surat_magang
         $pdfName = time() . '_' . $tracking . '.pdf';
         $request->file('surat_pdf')->move(public_path('surat_magang'), $pdfName);
 
-        // Simpan ke tabel pengajuan
         $pengajuan = PengajuanMagang::create([
             'tracking_code' => $tracking,
             'nama' => $request->nama,
@@ -50,15 +44,9 @@ class PengajuanMagangController extends Controller
             'status' => 0,
             'keterangan' => null
         ]);
-
-        // >>> Redirect ke halaman sukses yang menampilkan tracking code
         return redirect()->route('pengajuan.sukses', ['tracking' => $tracking]);
     }
 
-
-    /**
-     * Cek status pengajuan berdasarkan tracking code
-     */
     public function checkStatus(Request $request)
     {
         $request->validate([

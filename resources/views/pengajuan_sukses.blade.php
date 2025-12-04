@@ -14,7 +14,6 @@
 
         <p class="text-center mb-2">Berikut kode status pengajuan Anda:</p>
 
-        {{-- Kotak Tracking Code Dengan Tombol Copy --}}
         <div class="d-flex justify-content-between align-items-center p-3 mb-3 border rounded"
              style="background: #f0f8ff; border-color: #bcdfff !important;">
 
@@ -28,8 +27,6 @@
                 <i class="bi bi-clipboard" id="copyIcon"></i>
             </button>
         </div>
-
-        {{-- ⚠ Warning Message --}}
         <div class="alert text-center fw-semibold" 
             style="border-radius: 10px; background:#d9534f; color:white;">
             ⚠ Wajib menyimpan kode pendaftaran ini!<br>
@@ -55,7 +52,7 @@
     </div>
 </div>
 
-{{-- Script Copy --}}
+{{-- JS SECTION --}}
 <script>
     function copyTrackingCode() {
         const code = document.getElementById('trackingCode').innerText;

@@ -16,6 +16,7 @@
                 </div>
 
                 <li><a class="nav-link scrollto" href="{{ url('pengajuan') }}">Pengajuan</a></li>
+                <li><a class="nav-link scrollto" href="{{ url('status') }}">Status Pengajuan</a></li>
 
                 <div class="dropdown">
                     <li><a class="nav-link scrollto" href="{{ url('kegiatan') }}">Kegiatan</a></li>

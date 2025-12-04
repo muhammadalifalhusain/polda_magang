@@ -7,30 +7,30 @@ Route::get('/', function () {
     return view('home');
 });
 
-/*
-|--------------------------------------------------------------------------
-| GROUP ROUTE UNTUK PENGAJUAN MAGANG
-|--------------------------------------------------------------------------
-*/
 
 Route::prefix('pengajuan')->group(function () {
 
-    // Tampilkan form pengajuan
     Route::get('/', function () {
         return view('pengajuan_magang');
-    })->name('pengajuan.form');
+    })->name('pengajuan.index');
 
-    // Proses submit form
     Route::post('/', [PengajuanMagangController::class, 'store'])
         ->name('pengajuan.store');
 
-    // Halaman sukses setelah submit
     Route::get('/sukses/{tracking}', function ($tracking) {
         return view('pengajuan_sukses', compact('tracking'));
     })->name('pengajuan.sukses');
 
-    // Cek status pengajuan
-    Route::post('/cek-status', [PengajuanMagangController::class, 'checkStatus'])
-        ->name('pengajuan.status');
+});
 
+
+Route::prefix('status')->group(function () {
+    
+    Route::get('/', function () {
+        return view('cek_status');
+    })->name('status.index');
+    
+
+    Route::post('/cek-status', [PengajuanMagangController::class, 'checkStatus'])
+        ->name('status.store');
 });

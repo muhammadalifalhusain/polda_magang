@@ -5,7 +5,7 @@
 <div class="container mt-5">
     <h3 class="mb-4">Form Pengajuan Magang</h3>
 
-    {{-- Notifikasi Error --}}
+    {{-- ERROR NOTIFICATION --}}
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul class="mb-0">
@@ -48,7 +48,7 @@
             <div class="col-md-6 mb-3">
                 <label class="form-label">Tanggal Selesai Magang</label>
                 <input type="date" name="tanggal_selesai" class="form-control" required>
-            </div>
+        </div>
         </div>
 
         <div class="mb-3">
