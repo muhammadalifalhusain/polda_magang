@@ -34,32 +34,4 @@
     </div>
 </section>
 
-<div class="row justify-content-center text-center">
-
-    <div class="col-xl-4 col-lg-4 mt-4" data-aos="fade-up">
-        <div class="info-box text-center">
-            <i class="bx bx-map"></i>
-            <h3>Alamat Kami</h3>
-            <p>Jl. Pahlawan No. 1 Mugassari, Semarang, Jawa Tengah</p>
-        </div>
-    </div>
-
-    <div class="col-xl-4 col-lg-4 mt-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="info-box text-center">
-            <i class="bx bx-envelope"></i>
-            <h3>Email Kami</h3>
-            <p>bidtik.jateng@polri.go.id</p>
-        </div>
-    </div>
-
-    <div class="col-xl-4 col-lg-4 mt-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="info-box text-center">
-            <i class="bx bx-phone-call"></i>
-            <h3>Hubungi Kami</h3>
-            <p>(024) 8413544</p>
-        </div>
-    </div>
-
-</div>
-
 @endsection
