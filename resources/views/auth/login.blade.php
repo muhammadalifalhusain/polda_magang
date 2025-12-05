@@ -120,7 +120,8 @@
                 </div>
             @endif
 
-            <form method="POST" action="{{ route('status.store') }}">
+            <form method="POST" action="{{ route('login.process') }}">
+
                 @csrf
 
                 <div class="mb-3">
