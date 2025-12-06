@@ -29,7 +29,11 @@ Route::middleware(['auth', 'adminOnly'])
 
     Route::post('/update-status/{id}', [\App\Http\Controllers\Admin\DashboardController::class, 'updateStatus'])
         ->name('updateStatus');
+
+    Route::get('/download-surat/{filename}', [\App\Http\Controllers\Admin\DashboardController::class, 'downloadSurat'])
+        ->name('downloadSurat');
 });
+
 
 Route::prefix('pengajuan')->group(function () {
 

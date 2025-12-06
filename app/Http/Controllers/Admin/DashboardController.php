@@ -23,7 +23,31 @@ class DashboardController extends Controller
             'data' => $data,
             'status' => $status
         ])->with('cek_view', 'INI VIEW ADMIN DASHBOARD TERBARU');
-
     }
 
+    public function updateStatus(Request $request, $id)
+    {
+        $request->validate([
+            'status' => 'required|in:1,2',
+            'keterangan' => 'required|string|min:5'
+        ]);
+
+        $data = StatusPengajuan::findOrFail($id);
+        $data->status = $request->status;
+        $data->keterangan = $request->keterangan;
+        $data->save();
+
+        return redirect()->back()->with('success', 'Status berhasil diperbarui.');
+    }
+
+    public function downloadSurat($filename)
+    {
+        $path = public_path('surat_magang/' . $filename);   
+
+        if (!file_exists($path)) {
+            abort(404, 'File tidak ditemukan.');
+        }
+
+        return response()->download($path);
+    }
 }

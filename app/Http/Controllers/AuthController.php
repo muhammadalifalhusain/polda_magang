@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -18,21 +19,25 @@ class AuthController extends Controller
             'email' => 'required',
             'password' => 'required'
         ]);
-        $user = \App\Models\User::where('email', $request->email)->first();
-        if (!$user) {
-            return back()->with('error', 'Email tidak ditemukan');
-        }
-        if ($user->password !== $request->password) {
-            return back()->with('error', 'Password salah');
-        }
-        \Illuminate\Support\Facades\Auth::login($user);
-        $request->session()->regenerate();
 
-        return redirect()->route('admin.dashboard');
+        // Gunakan attempt agar sesuai standar Laravel
+        if (Auth::attempt([
+            'email' => $request->email,
+            'password' => $request->password
+        ])) {
+            // regenerate session untuk keamanan
+            $request->session()->regenerate();
+            return redirect()->route('admin.dashboard');
+        }
+
+        // Jika gagal, kirim pesan error
+        return back()->with('error', 'Email atau password salah');
     }
+
     public function logout(Request $request)
     {
         Auth::logout();
+
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 

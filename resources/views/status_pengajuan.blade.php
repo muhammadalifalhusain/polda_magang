@@ -13,7 +13,9 @@
         {{-- Tracking Code --}}
         <div class="mb-4 text-center">
             <p class="fw-semibold mb-1">Tracking Code Anda:</p>
-            <h3 class="fw-bold text-primary" style="letter-spacing: 2px;">{{ $status->tracking_code }}</h3>
+            <h3 class="fw-bold" style="letter-spacing: 2px; color: #ff5821;">
+                {{ $status->tracking_code }}
+            </h3>
         </div>
         @php
             $statusText = [
