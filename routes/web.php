@@ -3,44 +3,34 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PengajuanMagangController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardAdminController;
 
-/*
-|--------------------------------------------------------------------------
-| Halaman Utama
-|--------------------------------------------------------------------------
-*/
 Route::get('/', function () {
     return view('home');
 });
 
-/*
-|--------------------------------------------------------------------------
-| Login
-|--------------------------------------------------------------------------
-*/
+
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.process');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+// Group Routing Admin
+Route::middleware(['auth', 'adminOnly'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
 
-/*
-|--------------------------------------------------------------------------
-| Dashboard Admin (hanya setelah login)
-|--------------------------------------------------------------------------
-*/
-Route::middleware('auth')->group(function () {
-    Route::get('/admin/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
+    Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])
+        ->name('dashboard');
+
+    Route::get('/detail/{id}', [\App\Http\Controllers\Admin\DashboardController::class, 'detail'])
+        ->name('detail');
+
+    Route::post('/update-status/{id}', [\App\Http\Controllers\Admin\DashboardController::class, 'updateStatus'])
+        ->name('updateStatus');
 });
 
-
-/*
-|--------------------------------------------------------------------------
-| Pengajuan Magang
-|--------------------------------------------------------------------------
-*/
 Route::prefix('pengajuan')->group(function () {
 
     Route::get('/', function () {
@@ -56,11 +46,6 @@ Route::prefix('pengajuan')->group(function () {
 });
 
 
-/*
-|--------------------------------------------------------------------------
-| Cek Status
-|--------------------------------------------------------------------------
-*/
 Route::prefix('status')->group(function () {
 
     Route::get('/', function () {

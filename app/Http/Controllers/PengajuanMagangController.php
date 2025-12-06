@@ -36,8 +36,6 @@ class PengajuanMagangController extends Controller
             'tanggal_selesai' => $request->tanggal_selesai,
             'surat_pdf' => $pdfName
         ]);
-
-        // Simpan status awal (pending)
         StatusPengajuan::create([
             'pengajuan_id' => $pengajuan->id,
             'tracking_code' => $tracking,

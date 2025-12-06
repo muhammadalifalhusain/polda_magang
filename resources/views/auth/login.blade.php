@@ -125,8 +125,8 @@
                 @csrf
 
                 <div class="mb-3">
-                    <label class="form-label"><i class="bi bi-person-fill me-1"></i> Username</label>
-                    <input type="text" name="username" class="form-control" required autocomplete="off" placeholder="Masukkan username Anda">
+                    <label class="form-label"><i class="bi bi-person-fill me-1"></i> email</label>
+                    <input type="text" name="email" class="form-control" required autocomplete="off" placeholder="Masukkan email Anda">
                 </div>
 
                 <div class="mb-4">
@@ -142,7 +142,6 @@
 
         </div>
     </div>
-
 </div>
 
 @endsection
