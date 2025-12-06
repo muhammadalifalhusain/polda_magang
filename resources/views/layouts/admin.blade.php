@@ -18,14 +18,19 @@
             padding-top: 20px;
             color: white;
         }
-        .sidebar a {
+        .sidebar a, .sidebar button {
             color: #ffbe76;
             padding: 12px 20px;
             display: block;
             font-size: 1rem;
             text-decoration: none;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
         }
-        .sidebar a:hover {
+        .sidebar a:hover, .sidebar button:hover {
             background: rgba(255,255,255,0.1);
         }
         .content {
@@ -39,7 +44,16 @@
 
 <div class="sidebar">
     <h4 class="text-center mb-4">Admin Panel</h4>
-    <a href="{{ route('logout') }}">🚪 Logout</a>
+
+    <!-- Tombol Logout (POST) -->
+    <button onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">
+        🚪 Logout
+    </button>
+
+    <!-- Form Logout (POST) -->
+    <form id="logoutForm" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+    </form>
 </div>
 
 <div class="content">
