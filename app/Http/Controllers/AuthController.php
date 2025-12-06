@@ -15,20 +15,27 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'email'    => 'required|email',
-            'password' => 'required',
+            'email' => 'required',
+            'password' => 'required'
         ]);
-dd($request->all());
-        if (Auth::attempt($request->only('email', 'password'))) {
-            return redirect()->route('admin.dashboard');
+        $user = \App\Models\User::where('email', $request->email)->first();
+        if (!$user) {
+            return back()->with('error', 'Email tidak ditemukan');
         }
+        if ($user->password !== $request->password) {
+            return back()->with('error', 'Password salah');
+        }
+        \Illuminate\Support\Facades\Auth::login($user);
+        $request->session()->regenerate();
 
-        return back()->with('error', 'Email atau password salah');
+        return redirect()->route('admin.dashboard');
     }
-
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
-        return redirect()->route('login');
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login')->with('error', 'Anda telah logout');
     }
 }
