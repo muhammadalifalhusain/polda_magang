@@ -10,7 +10,7 @@
                 <div class="dropdown">
                     <li><a class="dropbtn" href="{{ url('profil') }}">Profil Polda Jateng</a></li>
                     <div class="dropdown-content">
-                        <a class="nav-link scrollto" href="{{ url('strukturpolda') }}">Struktur Polda</a>
+                        <a class="nav-link scrollto" href="{{ url('struktur') }}">Struktur Polda</a>
                         <a class="nav-link scrollto" href="{{ url('galeri') }}">Galeri</a>
                     </div>
                 </div>

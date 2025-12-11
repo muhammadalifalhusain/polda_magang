@@ -9,6 +9,19 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/profil', function () {
+    return view('profil_polda');
+});
+
+Route::get('/struktur', function () {
+    return view('struktur_polda');
+});
+
+Route::get('/galeri', function () {
+    return view('galeri');
+})->name('galeri');
+
+
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.process');
@@ -58,4 +71,33 @@ Route::prefix('status')->group(function () {
 
     Route::post('/cek-status', [PengajuanMagangController::class, 'checkStatus'])
         ->name('status.store');
+});
+
+// KEGIATAN (GROUP PREFIX)
+Route::prefix('kegiatan')->name('kegiatan.')->group(function () {
+
+    // Halaman Utama Kegiatan
+    Route::get('/', function () {
+        return view('kegiatan');
+    })->name('index');
+
+    // Agenda Kegiatan
+    Route::get('/agenda', function () {
+        return view('agenda');
+    })->name('agenda');
+
+    // Dokumentasi Kegiatan
+    Route::get('/dokumentasi', function () {
+        return view('dokumentasi');
+    })->name('dokumentasi');
+
+    // Modul Magang
+    Route::get('/modul', function () {
+        return view('modul');
+    })->name('modul');
+
+    // Saran & Masukan
+    Route::get('/saran', function () {
+        return view('saran');
+    })->name('saran');
 });
