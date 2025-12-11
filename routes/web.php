@@ -9,6 +9,9 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/profil', function () {
+    return view('profil_polda');
+});
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.process');
