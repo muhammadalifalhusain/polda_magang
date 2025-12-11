@@ -216,6 +216,9 @@
             <a href="#">
                 <i class="bi bi-file-earmark-text"></i> Dokumen
             </a>
+            <a href="logbook">
+                <i class="bi bi-file-earmark-text"></i> LogBook
+            </a>
         </div>
 
     </div>

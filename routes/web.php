@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PengajuanMagangController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LogbookController;
 use App\Http\Controllers\DashboardAdminController;
 
 Route::get('/', function () {
@@ -38,30 +39,37 @@ Route::middleware(['auth'])
     ->name('user.')
     ->group(function () {
 
-        // Dashboard User
-        Route::get('/dashboard', function () {
-            return view('mahasiswa.dashboard');
-        })->name('dashboard');
+    // Dashboard User
+    Route::get('/dashboard', function () {
+        return view('mahasiswa.dashboard');
+    })->name('dashboard');
 
-        /**
-         * PENGAJUAN MAGANG (hanya untuk user login)
-         */
-        Route::prefix('pengajuan')->name('pengajuan.')->group(function () {
+    /**
+     * LOGBOOK (hanya bisa dibuka jika status pengajuan = 1 / diterima)
+     */
+    Route::get('/logbook', [LogbookController::class, 'index'])
+        ->name('logbook.index');
 
-            Route::get('/', function () {
-                return view('pengajuan_magang');
-            })->name('index');
 
-            Route::post('/', [PengajuanMagangController::class, 'store'])
-                ->name('store');
+    /**
+     * PENGAJUAN MAGANG
+     */
+    Route::prefix('pengajuan')->name('pengajuan.')->group(function () {
 
-            Route::get('/sukses/{tracking}', function ($tracking) {
-                return view('pengajuan_sukses', compact('tracking'));
-            })->name('sukses');
+        Route::get('/', function () {
+            return view('pengajuan_magang');
+        })->name('index');
 
-        });
+        Route::post('/', [PengajuanMagangController::class, 'store'])
+            ->name('store');
+
+        Route::get('/sukses/{tracking}', function ($tracking) {
+            return view('pengajuan_sukses', compact('tracking'));
+        })->name('sukses');
 
     });
+
+});
 
 
 Route::middleware(['auth', 'adminOnly'])

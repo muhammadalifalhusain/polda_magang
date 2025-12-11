@@ -37,10 +37,9 @@ class PengajuanMagangController extends Controller
         $pdfName = time() . '_' . $tracking . '.pdf';
         $request->file('surat_pdf')->move(public_path('surat_magang'), $pdfName);
 
-        // Insert ke table pengajuan
         $pengajuan = PengajuanMagang::create([
             'user_id'        => $userId,
-            'nama'       => $username,
+            'nama'           => $username,
             'tracking_code'  => $tracking,  
             'universitas'    => $request->universitas,
             'jurusan'        => $request->jurusan,
@@ -49,10 +48,8 @@ class PengajuanMagangController extends Controller
             'tanggal_selesai'=> $request->tanggal_selesai,
             'surat_pdf'      => $pdfName
         ]);
-
-        // Insert status awal
         StatusPengajuan::create([
-            'pengajuan_id' => $pengajuan->id,
+            'user_id' => $userId,
             'tracking_code'=> $tracking,
             'status'       => 0,
             'keterangan'   => null
