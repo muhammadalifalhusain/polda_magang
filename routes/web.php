@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PengajuanMagangController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LogbookController;
+use App\Http\Controllers\ProfileMahasiswaController;
 use App\Http\Controllers\DashboardAdminController;
 
 Route::get('/', function () {
@@ -40,9 +41,8 @@ Route::middleware(['auth'])
     ->group(function () {
 
     // Dashboard User
-    Route::get('/dashboard', function () {
-        return view('mahasiswa.dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [ProfileMahasiswaController::class, 'index'])
+    ->name('dashboard');
 
     /**
      * LOGBOOK (hanya bisa dibuka jika status pengajuan = 1 / diterima)
