@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('status_pengajuan', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pengajuan_id')->constrained('pengajuan_magang')->onDelete('cascade');
+
+            // Diganti dari pengajuan_id → user_id
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+
             $table->string('tracking_code', 20);
             $table->tinyInteger('status')->default(0)->comment('0=pending,1=diterima,2=ditolak');
             $table->string('keterangan', 255)->nullable();
