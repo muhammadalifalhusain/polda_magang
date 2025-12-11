@@ -38,11 +38,31 @@ Route::middleware(['auth'])
     ->name('user.')
     ->group(function () {
 
-    Route::get('/dashboard', function () {
-        return view('mahasiswa.dashboard');
-    })->name('dashboard');
+        // Dashboard User
+        Route::get('/dashboard', function () {
+            return view('mahasiswa.dashboard');
+        })->name('dashboard');
 
-});
+        /**
+         * PENGAJUAN MAGANG (hanya untuk user login)
+         */
+        Route::prefix('pengajuan')->name('pengajuan.')->group(function () {
+
+            Route::get('/', function () {
+                return view('pengajuan_magang');
+            })->name('index');
+
+            Route::post('/', [PengajuanMagangController::class, 'store'])
+                ->name('store');
+
+            Route::get('/sukses/{tracking}', function ($tracking) {
+                return view('pengajuan_sukses', compact('tracking'));
+            })->name('sukses');
+
+        });
+
+    });
+
 
 Route::middleware(['auth', 'adminOnly'])
     ->prefix('admin')

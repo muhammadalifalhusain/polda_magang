@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.mahasiswa')
 
 @section('content')
 
@@ -18,11 +18,6 @@
 
     <form action="{{ route('pengajuan.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-
-        <div class="mb-3">
-            <label class="form-label">Nama Mahasiswa</label>
-            <input type="text" name="nama" class="form-control" required>
-        </div>
 
         <div class="mb-3">
             <label class="form-label">Asal Universitas</label>

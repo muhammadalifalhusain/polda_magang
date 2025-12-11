@@ -210,8 +210,8 @@
             <a href="#">
                 <i class="bi bi-person"></i> Profil
             </a>
-            <a href="#">
-                <i class="bi bi-journal-text"></i> Data Akademik
+            <a href="pengajuan">
+                <i class="bi bi-journal-text"></i> Pengajuan
             </a>
             <a href="#">
                 <i class="bi bi-file-earmark-text"></i> Dokumen

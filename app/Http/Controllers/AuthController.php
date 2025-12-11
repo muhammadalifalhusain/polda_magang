@@ -27,7 +27,18 @@ class AuthController extends Controller
         ])) {
             $request->session()->regenerate();
 
-            // Redirect berdasarkan role
+            session([
+                'user_id' => Auth::user()->id,
+                'username' => Auth::user()->name
+            ]);
+
+            // Debugging: cek apakah ID tersimpan
+            // dd([
+            //     'auth_usser' => Auth::user(),
+            //     'session_user_id' => session('user_id')
+            // ]);
+
+            // Redirect berdasarkan role (tidak berjalan karena dd menghentikan)
             if (Auth::user()->role === 'admin') {
                 return redirect()->route('admin.dashboard');
             }
@@ -37,6 +48,7 @@ class AuthController extends Controller
 
         return back()->with('error', 'Email atau password salah');
     }
+
 
     public function showRegister()
     {
