@@ -4,6 +4,36 @@
 
 @section('content')
 
+{{-- =========================== --}}
+{{-- POPUP ALERT DI BAGIAN ATAS --}}
+{{-- =========================== --}}
+@if(session('success'))
+<div class="alert alert-success text-center fw-bold" 
+     style="position: fixed; top: 0; left: 0; right: 0; z-index: 9999; border-radius: 0;">
+    🎉 {{ session('success') }}
+</div>
+
+<script>
+    setTimeout(() => {
+        document.querySelector('.alert-success').style.display = 'none';
+    }, 3500);
+</script>
+@endif
+
+@if(session('error'))
+<div class="alert alert-danger text-center fw-bold" 
+     style="position: fixed; top: 0; left: 0; right: 0; z-index: 9999; border-radius: 0;">
+    ⚠️ {{ session('error') }}
+</div>
+
+<script>
+    setTimeout(() => {
+        document.querySelector('.alert-danger').style.display = 'none';
+    }, 3500);
+</script>
+@endif
+
+
 <div class="head">
     <div class="head-h4">
         <h4>Saran & Masukan</h4>
@@ -29,7 +59,7 @@
                 <div class="card shadow-sm border-0">
                     <div class="card-body">
 
-                        <form method="POST" action="{{ route('saran.store') }}">
+                        <form method="POST" action="{{ route('kegiatan.saran.store') }}">
                             @csrf
 
                             <div class="mb-3">

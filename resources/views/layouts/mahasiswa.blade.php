@@ -213,8 +213,11 @@
             <a href="pengajuan">
                 <i class="bi bi-journal-text"></i> Pengajuan
             </a>
+            <a href="status">
+                <i class="bi bi-journal-text"></i> Status Pengajuan
+            </a>
             <a href="#">
-                <i class="bi bi-file-earmark-text"></i> Dokumen
+                <i class="bi bi-file-earmark-text"></i> LogBook
             </a>
             <a href="logbook">
                 <i class="bi bi-file-earmark-text"></i> LogBook
