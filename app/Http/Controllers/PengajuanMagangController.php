@@ -56,7 +56,7 @@ class PengajuanMagangController extends Controller
         ]);
 
         // Redirect ke halaman sukses
-        return redirect()->route('pengajuan.sukses', ['tracking' => $tracking])
+        return redirect()->route('user.pengajuan.sukses', ['tracking' => $tracking])
             ->with('success', 'Pengajuan berhasil dikirim!');
     }
 

@@ -19,7 +19,7 @@
         @endif
 
         {{-- Form --}}
-        <form action="{{ route('status.store') }}" method="POST">
+        <form action="{{ route('user.status.store') }}" method="POST">
             @csrf
             
             <div class="mb-3">
