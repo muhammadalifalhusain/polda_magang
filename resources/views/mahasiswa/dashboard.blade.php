@@ -36,6 +36,11 @@
                         </tr>
 
                         <tr>
+                            <th>Judul</th>
+                            <td>{{ !empty($user->judul_project) ? $user->judul_project : '-' }}</td>
+                        </tr>
+
+                        <tr>
                             <th>Role</th>
                             <td>
                                 <span class="badge bg-success">Mahasiswa</span>

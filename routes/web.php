@@ -75,8 +75,23 @@ Route::middleware(['auth'])
         | LOGBOOK (muncul jika sudah diterima)
         |--------------------------------------------------------------------------
         */
-        Route::get('/logbook', [LogbookController::class, 'index'])
-            ->name('logbook.index');
+        Route::prefix('logbook')->name('logbook.')->group(function () {
+
+            // halaman utama logbook
+            Route::get('/', [LogbookController::class, 'index'])
+                ->name('index');
+
+            Route::get('/create', [LogbookController::class, 'create'])
+                ->name('create');
+
+            // simpan nama project
+            Route::post('/store-project', [LogbookController::class, 'storeNamaProject'])
+                ->name('store.project');
+
+            // simpan logbook
+            Route::post('/store', [LogbookController::class, 'storeLogbook'])
+                ->name('store');
+        });
 
         /*
         |--------------------------------------------------------------------------
@@ -90,6 +105,7 @@ Route::middleware(['auth'])
                 ->name('store');
         });
     });
+
 
 
 
