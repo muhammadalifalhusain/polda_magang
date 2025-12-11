@@ -37,59 +37,22 @@ Route::prefix('auth')->group(function () {
 
 
 Route::middleware(['auth'])
-    ->prefix('user')
-    ->name('user.')
-    ->group(function () {
+->prefix('user')
+->name('user.')
+->group(function () {
 
-
-        // DASHBOARD USER
-        Route::get('/dashboard', function () {
-            return view('mahasiswa.dashboard');
-        })->name('dashboard');
-
-
-        // ---------------------------
-        // PENGAJUAN MAGANG
-        // ---------------------------
-        Route::prefix('pengajuan')->name('pengajuan.')->group(function () {
-
-    // Dashboard User
+    // ---------------------------
+    // DASHBOARD USER
+    // ---------------------------
     Route::get('/dashboard', function () {
         return view('mahasiswa.dashboard');
     })->name('dashboard');
 
-    /**
-     * LOGBOOK (hanya bisa dibuka jika status pengajuan = 1 / diterima)
-     */
-    Route::get('/logbook', [LogbookController::class, 'index'])
-        ->name('logbook.index');
 
-
-
-    /**
-     * PENGAJUAN MAGANG
-     */
+    // ---------------------------
+    // PENGAJUAN MAGANG
+    // ---------------------------
     Route::prefix('pengajuan')->name('pengajuan.')->group(function () {
-
-
-            Route::get('/sukses/{tracking}', function ($tracking) {
-                return view('pengajuan_sukses', compact('tracking'));
-            })->name('sukses');
-        });
-
-
-        // ---------------------------
-        // CEK STATUS PENGAJUAN
-        // ---------------------------
-        Route::prefix('status')->name('status.')->group(function () {
-
-            Route::get('/', function () {
-                return view('cek_status');
-            })->name('index');
-
-            Route::post('/cek-status', [PengajuanMagangController::class, 'checkStatus'])
-                ->name('store');
-        });
 
         Route::get('/', function () {
             return view('pengajuan_magang');
@@ -101,11 +64,31 @@ Route::middleware(['auth'])
         Route::get('/sukses/{tracking}', function ($tracking) {
             return view('pengajuan_sukses', compact('tracking'));
         })->name('sukses');
+    });
 
 
+    // ---------------------------
+    // LOGBOOK (buka hanya jika diterima)
+    // ---------------------------
+    Route::get('/logbook', [LogbookController::class, 'index'])
+        ->name('logbook.index');
+
+
+    // ---------------------------
+    // CEK STATUS PENGAJUAN
+    // ---------------------------
+    Route::prefix('status')->name('status.')->group(function () {
+
+        Route::get('/', function () {
+            return view('cek_status');
+        })->name('index');
+
+        Route::post('/cek-status', [PengajuanMagangController::class, 'checkStatus'])
+            ->name('store');
     });
 
 });
+
 
 
 

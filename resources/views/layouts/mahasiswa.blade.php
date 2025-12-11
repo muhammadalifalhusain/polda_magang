@@ -201,23 +201,17 @@
         <div class="menu-title">Menu Utama</div>
         <div class="menu-item">
             <a href="{{ route('user.dashboard') }}" class="{{ request()->routeIs('user.dashboard') ? 'active' : '' }}">
-                <i class="bi bi-speedometer2"></i> Dashboard
+                <i class="bi bi-speedometer2"></i> Profile
             </a>
         </div>
 
         <div class="menu-title">Akun & Data</div>
         <div class="menu-item">
-            <a href="#">
-                <i class="bi bi-person"></i> Profil
-            </a>
             <a href="pengajuan">
                 <i class="bi bi-journal-text"></i> Pengajuan
             </a>
             <a href="status">
                 <i class="bi bi-journal-text"></i> Status Pengajuan
-            </a>
-            <a href="#">
-                <i class="bi bi-file-earmark-text"></i> LogBook
             </a>
             <a href="logbook">
                 <i class="bi bi-file-earmark-text"></i> LogBook
