@@ -22,27 +22,26 @@ class PengajuanMagangController extends Controller
             'surat_pdf' => 'required|mimes:pdf|max:2048',
         ]);
 
-        // Ambil user_id & username dari session
-        $userId   = session('user_id');
+        // Ambil data dari session
+        $userId = session('user_id');
         $username = session('username');
 
-        // 🔍 Debug terlebih dahulu sebelum insert
-        // dd([
-        //     'user_id'  => $userId,
-        //     'username' => $username,
-        //     'request_data' => $request->all()
-        // ]);
+        if (!$userId || !$username) {
+            return back()->with('error', 'Session pengguna tidak ditemukan. Silakan login ulang.');
+        }
 
+        // Generate tracking code
         $tracking = strtoupper(Str::random(10));
+
+        // Upload PDF
         $pdfName = time() . '_' . $tracking . '.pdf';
         $request->file('surat_pdf')->move(public_path('surat_magang'), $pdfName);
 
-        // Insert ke table pengajuan + user_id + username
+        // Insert ke table pengajuan
         $pengajuan = PengajuanMagang::create([
             'user_id'        => $userId,
-            'username'       => $username,
-            'tracking_code'  => $tracking,
-            'nama'           => $username,
+            'nama'       => $username,
+            'tracking_code'  => $tracking,  
             'universitas'    => $request->universitas,
             'jurusan'        => $request->jurusan,
             'semester'       => $request->semester,
@@ -51,15 +50,19 @@ class PengajuanMagangController extends Controller
             'surat_pdf'      => $pdfName
         ]);
 
+        // Insert status awal
         StatusPengajuan::create([
             'pengajuan_id' => $pengajuan->id,
             'tracking_code'=> $tracking,
-            'status' => 0,
-            'keterangan' => null
+            'status'       => 0,
+            'keterangan'   => null
         ]);
 
-        return redirect()->route('pengajuan.sukses', ['tracking' => $tracking]);
+        // Redirect ke halaman sukses
+        return redirect()->route('pengajuan.sukses', ['tracking' => $tracking])
+            ->with('success', 'Pengajuan berhasil dikirim!');
     }
+
 
 
 

@@ -34,7 +34,7 @@ class AuthController extends Controller
 
             // Debugging: cek apakah ID tersimpan
             // dd([
-            //     'auth_usser' => Auth::user(),
+            //     'nama' => session('username'),
             //     'session_user_id' => session('user_id')
             // ]);
 
