@@ -10,7 +10,7 @@
         <h2>Semarang, Jawa Tengah</h2>
         <div class="d-flex align-items-center">
             <i class="bx bxs-right-arrow-alt get-started-icon"></i>
-            <a href="{{ url('pendaftaran') }}" class="btn-get-started scrollto">Daftar</a>
+            <a href="{{ url('auth/register') }}" class="btn-get-started scrollto">Daftar</a>
         </div>
     </div>
 </section>

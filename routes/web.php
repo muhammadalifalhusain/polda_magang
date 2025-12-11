@@ -13,12 +13,28 @@ Route::get('/profil', function () {
     return view('profil_polda');
 });
 
-Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-Route::post('/login', [AuthController::class, 'login'])->name('login.process');
+Route::prefix('auth')->group(function () {
+    Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+    Route::post('/login', [AuthController::class, 'login'])->name('login.process');
 
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+    Route::post('/register', [AuthController::class, 'register'])->name('register.process');
 
-// Group Routing Admin
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+});
+
+Route::middleware(['auth'])
+    ->prefix('user')
+    ->name('user.')
+    ->group(function () {
+
+    Route::get('/dashboard', function () {
+        return view('mahasiswa.dashboard');
+    })->name('dashboard');
+
+});
+
 Route::middleware(['auth', 'adminOnly'])
     ->prefix('admin')
     ->name('admin.')
