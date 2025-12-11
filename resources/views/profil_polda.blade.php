@@ -31,28 +31,60 @@
                 style="display: block; margin: 0 auto; border-radius: 8px; max-width: 80%; box-shadow: 0 5px 15px rgba(0,0,0,0.15);">
         </div>
 
-        <!-- Visi & Misi -->
-        <div class="visi-misi-box mt-4 p-4"
-            data-aos="fade-up"
-            style="background: #faf6f2; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <!-- ==========================
+             VISI & MISI (BARU)
+        =========================== -->
+        <div class="mt-5" data-aos="fade-up">
 
-            <h3 class="fw-bold text-dark">Visi</h3>
-            <p class="mt-2" style="font-size: 16px; max-width: 850px; margin: auto; line-height: 1.7;">
-                "Menampilkan Polda Jawa Tengah yang Profesional, Bermoral, Modern sebagai Pelindung,
-                Pengayom, dan Pelayan Masyarakat yang terpercaya dalam pemeliharaan Kemanan ketertiban
-                Masyarakat dan Penegakkan Hukum."
-            </p>
+            <div class="row g-4">
 
-            <h3 class="fw-bold text-dark mt-4">Misi</h3>
-            <p class="mt-2" style="font-size: 16px; max-width: 850px; margin: auto; line-height: 1.8;">
-                1. Meningkatkan Sumber Daya Manusia Kepolisian Daerah Jawa Tengah Untuk Tampil sebagai sosok Pengayom, Pelindung dan Pelayan Masyarakat.<br><br>
-                2. Melaksanakan Penegakkan Hukum secara Konsisten, Berkesinambungan dan Transparan untuk pemeliharaan Kamtibmas.<br><br>
-                3. Melaksanakan Pelayanan Optimal yang dapat menimbulkan kepercayaan bagi Masyarakat dalam upaya meningkatkan kesadaran hukum.<br><br>
-                4. Menciptakan kondisi keamanan yang kondusif dengan meningkatkan peran serta masyarakat dan instansi terkait secara aktif.<br><br>
-                5. Mengedepankan dan Menjunjung Tinggi Hak Asasi Manusia dalam setiap pelaksanaan tugas.
-            </p>
+                <!-- Visi -->
+                <div class="col-md-6">
+                    <div class="card shadow-sm border-0 h-100 visi-card p-4 text-center">
+                        <div class="icon-circle mb-3 mx-auto">
+                            <i class="bi bi-eye-fill"></i>
+                        </div>
+                        <h3 class="fw-bold text-dark mb-3">Visi</h3>
+                        <p class="text-muted" style="line-height: 1.8;">
+                            Menampilkan Polda Jawa Tengah yang Profesional, Bermoral, Modern sebagai
+                            Pelindung, Pengayom, dan Pelayan Masyarakat yang terpercaya dalam pemeliharaan
+                            Keamanan Ketertiban Masyarakat dan Penegakkan Hukum.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Misi -->
+                <div class="col-md-6">
+                    <div class="card shadow-sm border-0 h-100 misi-card p-4">
+                        <div class="icon-circle mb-3 mx-auto">
+                            <i class="bi bi-flag-fill"></i>
+                        </div>
+                        <h3 class="fw-bold text-dark text-center mb-3">Misi</h3>
+
+                        <ul class="list-group list-group-flush styled-list">
+                            <li class="list-group-item">
+                                Meningkatkan SDM Kepolisian untuk tampil sebagai Pengayom, Pelindung, dan Pelayan Masyarakat.
+                            </li>
+                            <li class="list-group-item">
+                                Melaksanakan penegakan hukum secara konsisten, berkesinambungan, dan transparan.
+                            </li>
+                            <li class="list-group-item">
+                                Memberikan pelayanan optimal untuk meningkatkan kepercayaan masyarakat terhadap hukum.
+                            </li>
+                            <li class="list-group-item">
+                                Menciptakan kondisi keamanan kondusif dengan peran aktif masyarakat dan instansi terkait.
+                            </li>
+                            <li class="list-group-item">
+                                Menjunjung tinggi Hak Asasi Manusia dalam setiap pelaksanaan tugas.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
 
         </div>
+        <!-- END VISI & MISI -->
 
     </div>
 </section>
