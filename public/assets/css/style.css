@@ -2889,3 +2889,11 @@ h1 {
 .kegiatan-img:hover {
     transform: scale(1.05);
 }
+
+
+.kegiatan {
+    width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+}
