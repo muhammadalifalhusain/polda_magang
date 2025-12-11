@@ -64,8 +64,6 @@ class PengajuanMagangController extends Controller
     }
 
 
-
-
     public function checkStatus(Request $request)
     {
         $request->validate([

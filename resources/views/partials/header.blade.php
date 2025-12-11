@@ -15,16 +15,16 @@
                     </div>
                 </div>
 
-                <li><a class="nav-link scrollto" href="{{ url('pengajuan') }}">Pengajuan</a></li>
+                <!-- <li><a class="nav-link scrollto" href="{{ url('pengajuan') }}">Pengajuan</a></li> -->
                 <li><a class="nav-link scrollto" href="{{ url('status') }}">Status Pengajuan</a></li>
 
                 <div class="dropdown">
                     <li><a class="nav-link scrollto" href="{{ url('kegiatan') }}">Kegiatan</a></li>
                     <div class="dropdown-content">
-                        <a class="nav-link scrollto" href="{{ url('logbook') }}">LOGBOOK</a>
-                        <a class="nav-link scrollto" href="{{ url('bidang-kesehatan') }}">Daftar Mahasiswa</a>
-                        <a class="nav-link scrollto" href="{{ url('bidang-kamtibmas') }}">Projek Magang</a>
-                        <a class="nav-link scrollto" href="{{ url('saran') }}">Saran dan Masukkan</a>
+                        <a class="nav-link scrollto" href="{{ url('kegiatan/agenda') }}">Agenda Kegiatan</a>
+                        <a class="nav-link scrollto" href="{{ url('kegiatan/dokumentasi') }}">Dokumentasi</a>
+                        <a class="nav-link scrollto" href="{{ url('kegiatan/modul') }}">Modul Magang</a>
+                        <a class="nav-link scrollto" href="{{ url('kegiatan/saran') }}">Saran dan Masukan</a>
                     </div>
                 </div>
                 <li style="margin-left: 20px;">
