@@ -16,11 +16,7 @@ class LogbookController extends Controller
         if (!$userId) {
             return redirect()->route('login')->with('error', 'Anda harus login terlebih dahulu.');
         }
-
-        // Ambil data user
         $user = User::find($userId);
-
-        // Pengecekan status pengajuan
         $statusPengajuan = StatusPengajuan::where('user_id', $userId)->first();
 
         if (!$statusPengajuan) {

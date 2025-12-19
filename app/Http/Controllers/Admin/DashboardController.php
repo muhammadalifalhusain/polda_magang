@@ -29,20 +29,17 @@ class DashboardController extends Controller
     {
         $request->validate([
             'status' => 'required|in:1,2',
-            'keterangan' => 'required|string|min:5'
         ]);
 
         $data = StatusPengajuan::findOrFail($id);
         $data->status = (int) $request->status;
         $data->keterangan = $request->keterangan;
-        dd($data);
         $data->save();
 
         return redirect()->route('admin.dashboard', [
             'status' => $request->status
         ])->with('success', 'Status berhasil diperbarui');
     }
-
 
     public function downloadSurat($filename)
     {

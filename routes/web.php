@@ -92,12 +92,6 @@ Route::middleware(['auth'])
             Route::post('/store', [LogbookController::class, 'storeLogbook'])
                 ->name('store');
         });
-
-        /*
-        |--------------------------------------------------------------------------
-        | CEK STATUS PENGAJUAN
-        |--------------------------------------------------------------------------
-        */
         Route::prefix('status')->name('status.')->group(function () {
             Route::get('/', fn() => view('cek_status'))->name('index');
 
@@ -105,16 +99,6 @@ Route::middleware(['auth'])
                 ->name('store');
         });
     });
-
-
-
-
-
-/*
-|--------------------------------------------------------------------------
-| ADMIN
-|--------------------------------------------------------------------------
-*/
 
 Route::middleware(['auth', 'adminOnly'])
     ->prefix('admin')
