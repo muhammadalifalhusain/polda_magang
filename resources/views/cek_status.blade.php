@@ -7,7 +7,7 @@
 
         <h3 class="text-center fw-bold mb-3">Cek Status Pengajuan</h3>
         <p class="text-center text-muted">
-            Masukkan kode tracking yang Anda dapatkan saat melakukan pendaftaran.
+            Masukkan kode pengajuan yang Anda dapatkan saat melakukan pendaftaran.
         </p>
 
         {{-- Notifikasi Error --}}
@@ -25,7 +25,7 @@
             <div class="mb-3">
                 <input type="text" name="tracking_code" 
                        class="form-control text-center"
-                       placeholder="Masukkan Kode Tracking"
+                       placeholder="Masukkan Kode Pengajuan"
                        style="letter-spacing: 2px; font-weight:600;"
                        required>
             </div>

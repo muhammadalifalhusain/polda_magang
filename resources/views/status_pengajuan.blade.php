@@ -44,15 +44,7 @@
             <h6 class="fw-bold">Terakhir Diperbarui:</h6>
             <p class="text-muted">{{ $status->updated_at->format('d-m-Y H:i') }} WIB</p>
         </div>
-        <div class="text-center">
-            <a href="/" 
-               class="btn px-4 py-2"
-               style="border-radius: 10px; background:#39312f; color:#ff5821; font-weight:600;">
-                Kembali ke Beranda
-            </a>
-        </div>
 
-    </div>
 </div>
 
 @endsection

@@ -150,4 +150,6 @@ Route::prefix('kegiatan')->name('kegiatan.')->group(function () {
 
     Route::get('/saran', fn() => view('saran'))->name('saran');
     Route::post('/saran', [SaranController::class, 'store'])->name('saran.store');
+    
 });
+

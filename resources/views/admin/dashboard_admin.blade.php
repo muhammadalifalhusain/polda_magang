@@ -169,44 +169,30 @@
 </div>
 
 <script>
-    function openModal(id, status) {
-        // Set status (1=terima, 2=tolak)
-        document.getElementById('statusValue').value = status;
-        
-        // Set judul modal berdasarkan status
-        const modalTitle = document.getElementById('keteranganModalLabel');
-        if (status == 1) {
-            modalTitle.textContent = 'Terima Pengajuan';
-        } else {
-            modalTitle.textContent = 'Tolak Pengajuan';
-        }
+function openModal(id, status) {
+    // set status
+    document.getElementById('statusValue').value = status;
 
-        // Set action URL form
-        document.getElementById('keteranganForm').action = "/admin/update-status/" + id;
+    // set action form
+    let baseUrl = "{{ url('admin/update-status') }}";
+    document.getElementById('keteranganForm').action = baseUrl + "/" + id;
 
-        // Kosongkan textarea sebelumnya
-        document.getElementById('ket').value = '';
+    // set judul
+    document.getElementById('keteranganModalLabel').innerText =
+        status == 1 ? 'Terima Pengajuan' : 'Tolak Pengajuan';
 
-        // Buka modal dengan Bootstrap 5
-        const keteranganModal = new bootstrap.Modal(document.getElementById('keteranganModal'), {
-            backdrop: 'static',
-            keyboard: false
-        });
-        keteranganModal.show();
-        
-        // Fokus ke textarea
-        setTimeout(() => {
-            document.getElementById('ket').focus();
-        }, 500);
-    }
-    
-    // Inisialisasi tooltip untuk semua elemen yang memiliki data-bs-toggle="tooltip"
-    document.addEventListener('DOMContentLoaded', function() {
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl);
-        });
-    });
+    // reset textarea
+    document.getElementById('ket').value = '';
+
+    // buka modal
+    const modal = new bootstrap.Modal(
+        document.getElementById('keteranganModal'),
+        { backdrop: 'static', keyboard: false }
+    );
+    modal.show();
+}
 </script>
+
+
 
 @endsection

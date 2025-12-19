@@ -318,28 +318,20 @@
             <div class="menu-title">Main Menu</div>
             <div class="menu-item">
                 <a href="{{ route('admin.dashboard') }}" class="active">
-                    <i class="bi bi-speedometer2"></i> Dashboard
+                    <i class="bi bi-speedometer2"></i> Manajemen Pengajuan
                 </a>
             </div>
         </div>
 
         <div class="menu-section">
             <div class="menu-title">Management</div>
-            <div class="menu-item">
+            <div class="menu-item">    
                 <a href="#">
-                    <i class="bi bi-file-text"></i> Manajemen Pengajuan
+                    <i class="bi bi-people"></i> Data Mahasiswa
                 </a>
                 
                 <a href="#">
-                    <i class="bi bi-people"></i> Data Pengguna
-                </a>
-                
-                <a href="#">
-                    <i class="bi bi-bar-chart"></i> Reports
-                </a>
-                
-                <a href="#">
-                    <i class="bi bi-gear"></i> Settings
+                    <i class="bi bi-bar-chart"></i> Logbook Mahasiswa
                 </a>
             </div>
         </div>

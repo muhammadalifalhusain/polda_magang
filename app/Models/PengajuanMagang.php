@@ -12,6 +12,10 @@ class PengajuanMagang extends Model
 
     public function status()
     {
-        return $this->hasOne(StatusPengajuan::class, 'pengajuan_id');
+        return $this->hasOne(
+        StatusPengajuan::class,
+        'tracking_code',
+        'tracking_code'
+    );
     }
 }

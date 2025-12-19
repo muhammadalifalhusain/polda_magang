@@ -11,6 +11,10 @@ class StatusPengajuan extends Model
 
     public function pengajuan()
     {
-        return $this->belongsTo(PengajuanMagang::class, 'pengajuan_id');
+        return $this->belongsTo(
+        PengajuanMagang::class,
+        'tracking_code',
+        'tracking_code'
+    );
     }
 }
